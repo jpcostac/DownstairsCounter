@@ -83,6 +83,12 @@ h1 {
     text-align: justify;
 }
 
+.address{
+    font-size: 1.15rem;
+    margin-top: 50px;
+    text-align: center;
+}
+
 .partner-link {
     color: var(--primary-color);
     text-decoration: none;
