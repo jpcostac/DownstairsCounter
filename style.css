@@ -37,17 +37,28 @@ body {
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url('/src/images/DSC/DSC_colors.jpeg');
-    background-size: cover;
-    background-position: center;
+    background-color: #8B6F47;
     padding: 40px;
     border-radius: 15px;
+    position: relative;
+}
+
+.content-box-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    opacity: 0.8;
+    z-index: 0;
 }
 
 .opening-panel,
 .about-panel {
+    position: relative;
+    z-index: 1;
     flex: 1;
     min-width: 280px;
     display: flex;
