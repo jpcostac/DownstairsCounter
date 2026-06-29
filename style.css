@@ -31,56 +31,70 @@ body {
 
 .content-box {
     display: flex;
+    flex-direction: column;
     gap: 40px;
     max-width: 1100px;
     width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url('src/images/DSC/DSC_colors.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    border-radius: 15px;
 }
 
-.left-panel,
-.right-panel {
+.opening-panel,
+.about-panel {
     flex: 1;
     min-width: 280px;
     display: flex;
     flex-direction: column;
 }
 
-.left-panel {
-    text-align: left;
+.opening-panel {
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-.right-panel {
+.about-panel {
     text-align: left;
+    width: 100%;
 }
 
 .badge {
     display: inline-block;
-    color: var(--accent-color);
+    color: #ffffff;
     padding: 6px 16px;
     font-family: "Times New Roman", Times, serif;
     font-size: 2rem;
-    font-weight: normal;
+    font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 24px;
-    display: block;
-    text-align: left;
+    margin: 0;
+    white-space: nowrap;
 }
 
 h1 {
     font-size: 2.5rem;
-    color: var(--accent-color);
+    color: #ffffff;
     line-height: 1.2;
-    margin-bottom: 28px;
+    margin: 0;
     text-align: left;
     font-family: "Times New Roman", Times, serif;
-    font-weight: normal;
+    font-weight: 700;
 }
 
 .message {
     font-size: 1.15rem;
     margin-bottom: 20px;
     text-align: justify;
+    color: #ffffff;
+    font-weight: 600;
 }
 
 .address{
@@ -90,7 +104,7 @@ h1 {
 }
 
 .partner-link {
-    color: var(--primary-color);
+    color: #7cfc00;
     text-decoration: none;
     font-weight: 600;
     border-bottom: 2px solid transparent;
@@ -98,13 +112,13 @@ h1 {
 }
 
 .partner-link:hover {
-    border-color: var(--primary-color);
+    border-color: #7cfc00;
 }
 
 .closing {
     font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--accent-color);
+    font-weight: 700;
+    color: #ffffff;
     margin-top: 30px;
 }
 
@@ -195,6 +209,92 @@ h1 {
 .carousel-indicator.active {
     background-color: var(--primary-color);
     transform: scale(1.1);
+}
+
+/* Estilos para a Seção Kids & Art */
+.partnership-section {
+  padding: 60px 20px;
+  background-color: #faf8f5;
+  text-align: center;
+}
+
+.partnership-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.partnership-tag {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  color: #b38e76;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.partnership-title {
+  font-family: serif;
+  font-size: 2rem;
+  color: #4a3b32;
+  margin-bottom: 20px;
+}
+
+.partnership-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #6e5d53;
+  margin-bottom: 30px;
+}
+
+.partnership-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #6e5d53;
+  margin-bottom: 30px;
+  font-style: italic;
+}
+
+.partnership-link {
+  color: #b38e76;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #b38e76;
+  padding-bottom: 4px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Efeito sutil ao passar o mouse no link */
+.partnership-link:hover {
+  color: #4a3b32;
+  border-bottom-color: #4a3b32;
+  transform: translateY(-1px);
+}
+
+/* Galeria Kids & Art */
+.kids-art-gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.gallery-image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .main-footer {
