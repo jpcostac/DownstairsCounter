@@ -39,7 +39,7 @@ body {
     align-items: center;
     background-image: 
       linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-      url('src/images/DSC/DSC_colors.jpeg');
+      url('/src/images/DSC/DSC_colors.jpeg');
     background-size: cover;
     background-position: center;
     padding: 40px;
