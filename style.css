@@ -1,8 +1,15 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 :root {
     --bg-color: #fdfbf7;
     --primary-color: #9c6644;
     --text-color: #463f3a;
     --accent-color: #7f5539;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 * {
@@ -12,13 +19,139 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: var(--font-body);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+/* Header & Navigation */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(156, 102, 68, 0.12);
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav-logo {
+    height: 38px;
+    width: auto;
+}
+
+.nav-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: 0.5px;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.hamburger::before, .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 20px;
+        border-bottom: 1px solid rgba(156, 102, 68, 0.15);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        display: none;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
 }
 
 .hero-container {
@@ -42,7 +175,7 @@ body {
     border-radius: 15px;
     position: relative;
     color: var(--text-color);
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-body);
 }
 
 .opening-panel,
@@ -80,7 +213,7 @@ body {
     line-height: 1.2;
     margin: 0;
     text-align: center;
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-heading);
     font-weight: 700;
 }
 
@@ -99,12 +232,73 @@ body {
     display: inline-block;
     color: var(--text-color);
     padding: 6px 16px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 2rem;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     margin: 0;
     white-space: nowrap;
+}
+
+/* Card de Horário de Funcionamento */
+.hours-card {
+    background-color: rgba(156, 102, 68, 0.07);
+    border: 1px solid rgba(156, 102, 68, 0.2);
+    border-radius: 12px;
+    padding: 20px 28px;
+    margin-top: 10px;
+    display: inline-block;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(156, 102, 68, 0.05);
+}
+
+.hours-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 14px;
+}
+
+.hours-icon {
+    color: var(--primary-color);
+}
+
+.hours-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-bottom: 1px dashed rgba(156, 102, 68, 0.25);
+    padding-bottom: 8px;
+}
+
+.hours-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.hours-days {
+    color: var(--text-color);
+}
+
+.hours-time {
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 h1 {
@@ -113,19 +307,19 @@ h1 {
     line-height: 1.2;
     margin: 0;
     text-align: left;
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-heading);
     font-weight: 700;
 }
 
 .message {
     font-size: 1.15rem;
     margin-bottom: 20px;
-    text-align: justify;
+    text-align: left;
     color: var(--text-color);
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.address{
+.address {
     font-size: 1.15rem;
     margin-top: 50px;
     text-align: center;
@@ -259,8 +453,13 @@ h1 {
 .carousel-indicators {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
     margin-top: 18px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .carousel-indicator {
@@ -301,7 +500,7 @@ h1 {
 }
 
 .partnership-title {
-  font-family: serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   color: #4a3b32;
   margin-bottom: 20px;
@@ -333,7 +532,6 @@ h1 {
   display: inline-block;
 }
 
-/* Efeito sutil ao passar o mouse no link */
 .partnership-link:hover {
   color: #4a3b32;
   border-bottom-color: #4a3b32;
@@ -364,6 +562,106 @@ h1 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    background-color: var(--bg-color);
+    border-top: 1px solid rgba(156, 102, 68, 0.12);
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.contact-card {
+    background-color: #faf8f5;
+    border: 1px solid rgba(156, 102, 68, 0.15);
+    border-radius: 14px;
+    padding: 24px;
+    flex: 1 1 260px;
+    max-width: 310px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(70, 63, 58, 0.04);
+}
+
+.contact-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+}
+
+.contact-card-link, .contact-card-text {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contact-card-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Map Wrapper */
+.map-wrapper {
+    margin-top: 36px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(70, 63, 58, 0.1);
+    border: 1px solid rgba(156, 102, 68, 0.2);
+}
+
+/* Happy Hour Banner */
+.happy-hour-banner {
+    margin: 40px auto 0;
+    max-width: 680px;
+    background: linear-gradient(135deg, rgba(156, 102, 68, 0.08) 0%, rgba(127, 85, 57, 0.12) 100%);
+    border: 1px dashed rgba(156, 102, 68, 0.35);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(156, 102, 68, 0.06);
+}
+
+.happy-hour-badge {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+
+.happy-hour-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.happy-hour-text {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
 .main-footer {
     text-align: center;
     padding: 20px;
@@ -392,12 +690,6 @@ h1 {
     .opening-panel {
         flex-direction: column;
         gap: 15px;
-    }
-
-    .left-panel,
-    .right-panel {
-        min-width: auto;
-        width: 100%;
     }
 }
 

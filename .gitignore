@@ -1,0 +1,13 @@
+# Ignorar pasta de imagens do site
+src/images/Ignore
+
+# Extensões de imagem comuns (descomente se quiser ignorar em qualquer pasta)
+# *.jpg
+# *.jpeg
+# *.png
+# *.webp
+# *.gif
+
+# Sistema / OS
+.DS_Store
+Thumbs.db
