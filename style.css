@@ -104,6 +104,68 @@ body {
     width: 100%;
 }
 
+/* CTA Button in Navigation Header */
+.nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(156, 102, 68, 0.25);
+}
+
+.nav-cta-btn:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(127, 85, 57, 0.35);
+}
+
+.nav-cta-btn::after {
+    display: none !important;
+}
+
+/* Hero Section Order Button */
+.hero-cta-wrapper {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: #ffffff;
+    padding: 14px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 20px rgba(156, 102, 68, 0.3);
+    transition: all 0.3s ease;
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(127, 85, 57, 0.4);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+}
+
+.cta-icon {
+    flex-shrink: 0;
+}
+
 .nav-toggle {
     display: none;
     background: none;
